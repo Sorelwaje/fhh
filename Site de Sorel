@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Vente de vidéos et d'articles</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+ <nav>
+ <ul>
+ <li><a href="                         
+ <li><a href="                            
+ <li><a href="                        
+ </ul>
+ </nav>
+ </header>
+ <main>
+ <section id="videos">
+ <h1>Vidéos</h1>
+ <div class="video-grid">
+ <div class="video">
+ <img src="video1.jpg" alt="Vidéo 1">
+ <h2>Vidéo 1</h2>
+ <p>Description de la vidéo 1</p>
+ <button>Acheter</button>
+ </div>
+ <div class="video">
+ <img src="video2.jpg" alt="Vidéo 2">
+ <h2>Vidéo 2</h2>
+ <p>Description de la vidéo 2</p>
+ <button>Acheter</button>
+ </div>
+ </div>
+ </section>
+ <section id="articles">
+ <h1>Articles</h1>
+ <div class="article-grid">
+ <div class="article">
+ <img src="article1.jpg" alt="Article 1">
+ <h2>Article 1</h2>
+ <p>Description de l'">
+ <h2>Article 1</h2>
+ <p>Description de l'article 1</p>
+ <button>Acheter</button>
+ </div>
+ <div class=""article"">
+ <img src=""article2.jpg"" alt=""Article 2"">
+ <h2>Article 2</h2>
+ <p>Description de l'article 2</p>
+ <button>Acheter</button>
+ </div>
+ </div>
+ </section>
+ <section id="'article 2</p>
+ <button>Acheter</button>
+ </div>
+ </div>
+ </section>
+ <section id="panier">
+ <h1>Panier</h1>
+ <div class="panier-grid">
+ <div class="panier-item">
+ <img src="video1.jpg" alt="Vidéo 1">
+ <h2>Vidéo 1</h2>
+ <p>Prix : 10€</p>
+ <button>Supprimer</button>
+ </div>
+ </div>
+ <button>Commander</button>
+ </section>
+ </main>
+ <footer>
+ <p>&copy; 2023 Vente de vidéos et d'">
+ <h2>Vidéo 1</h2>
+ <p>Prix : 10€</p>
+ <button>Supprimer</button>
+ </div>
+ </div>
+ <button>Commander</button>
+ </section>
+ </main>
+ <footer>
+ <p>&copy; 2023 Vente de vidéos et d'articles</p>
+ </footer>
+ <script src=""script.js"></script>
+</body>
+</html>
+
+CSS (style.css)
+body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+}
+
+header {
+ background-color: #333;
+ color: #fff;
+ padding: 1em;
+ text-align: center;
+}
+
+nav ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: space-between;
+}
+
+nav li {
+ margin-right: 20px;
+}
+
+nav a {
+ color: #fff;
+ text-decoration: none;
+}
+
+main {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 2em;
+}
+
+.video-grid, .article-grid, .panier-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 20px;
+}
+
+.video, .article, .panier-item {
+ background-color: #f7f7f7;
+ padding: 1em;
+ border: 1px solid #ddd;
+}
+
+button {
+ background-color: #333;
+ color: #fff;
+ border: none;
+ padding: 10px 20px;
+ font-size: 16px;
+ cursor: pointer;
+}
+
+button:hover {
+ background-color: #444;
+}
+
+JavaScript (script.js)
+// Ajouter un événement pour ajouter un produit au panier
+document.querySelectorAll('.video button, .article button').forEach((button) => {
+ button.addEventListener('click', () => {
+ // Ajouter le produit au panier
+ const panier = document.getElementById('panier');
+ const panierGrid = panier.querySelector('.panier-grid');
+ const panierItem = document.createElement('div');
+ panierItem.classList.add('panier-item');
+ panierItem.innerHTML = `
+ <img src="${button.parentNode.querySelector('img').src}" alt="${button.parentNode.querySelector('h2').textContent}">
+ <h2>${button.parentNode.querySelector('h2').textContent}</h2>
+ <p>Prix : ${button.parentNode.querySelector('p').textContent}</p>
+ <button>Supprimer</button>
+ `;
+ panierGrid.appendChild(panierItem);
+ });
